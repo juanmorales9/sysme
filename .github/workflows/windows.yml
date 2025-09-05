@@ -17,8 +17,9 @@ jobs:
         with:
           node-version: 20
 
-      # Instalar dependencias (usa npm install si no tienes package-lock.json)
+      # Instalar dependencias (usa bash en lugar de PowerShell)
       - name: Install dependencies
+        shell: bash
         run: |
           if [ -f package-lock.json ]; then
             npm ci
@@ -26,11 +27,11 @@ jobs:
             npm install
           fi
 
-      # Construir instalador con electron-builder
+      # Construir instalador (asegúrate de tener script "dist" en package.json)
       - name: Build installer
         run: npm run dist
 
-      # Subir artefacto generado (ajusta carpeta si no es dist/)
+      # Subir artefactos generados
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
