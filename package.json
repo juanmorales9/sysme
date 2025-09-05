@@ -34,7 +34,8 @@
       "allowToChangeInstallationDirectory": true,
       "createDesktopShortcut": true,
       "createStartMenuShortcut": true
-    }
+    },
+    "publish": null
   },
   "dependencies": {
     "better-sqlite3": "^9.4.0",
