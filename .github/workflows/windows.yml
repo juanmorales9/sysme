@@ -9,12 +9,28 @@ jobs:
   build:
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: 20
-      - run: npm ci
-      - run: npm run dist
+
+      # Instalar dependencias (usa npm install si no tienes package-lock.json)
+      - name: Install dependencies
+        run: |
+          if [ -f package-lock.json ]; then
+            npm ci
+          else
+            npm install
+          fi
+
+      # Construir instalador con electron-builder
+      - name: Build installer
+        run: npm run dist
+
+      # Subir artefacto generado (ajusta carpeta si no es dist/)
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
