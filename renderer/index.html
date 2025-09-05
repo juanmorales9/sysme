@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>SysmeLite PMS</title>
+    <style>
+      :root { --bg:#f5f7fb; --panel:#ffffff; --muted:#6b7280; --brand:#2563eb; --line:#e5e7eb; }
+      body { margin:0; background:var(--bg); font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; color:#0f172a;}
+      .layout { display:flex; min-height:100vh; }
+      .side { width:240px; background:#eef2ff; padding:16px; box-shadow: inset -1px 0 0 var(--line); }
+      .brand { font-weight:700; font-size:18px; margin:8px 0 16px; }
+      .nav button{ display:flex; align-items:center; gap:10px; width:100%; padding:10px 12px; margin:6px 0; background:#fff; border:1px solid var(--line); border-radius:12px; cursor:pointer; }
+      .nav button.active{ background:#dbeafe; border-color:#bfdbfe; }
+      .content{ flex:1; padding:20px; }
+      .cards{ display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap:16px; }
+      .card{ background:var(--panel); border:1px solid var(--line); border-radius:16px; padding:16px; }
+      .h2{ font-size:14px; color:var(--muted); margin:0 0 8px; }
+      .big{ font-size:28px; font-weight:800; }
+      table{ width:100%; border-collapse:collapse; }
+      th, td{ padding:10px; border-bottom:1px solid var(--line); text-align:left; font-size:14px; }
+      .grid{ display:grid; grid-template-columns: 1fr 1fr; gap:16px; margin-top:16px; }
+      .toolbar{ display:flex; gap:8px; margin:10px 0; }
+      input, select, button { padding:8px 10px; border:1px solid var(--line); border-radius:10px; background:#fff; }
+      button.primary{ background:var(--brand); color:#fff; border-color:transparent; }
+      .muted{ color:var(--muted); font-size:12px; }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/index.jsx"></script>
+  </body>
+</html>
